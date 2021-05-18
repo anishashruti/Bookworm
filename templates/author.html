@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="../static/favicon.ico" type="image/gif">
+    <title>BOOKWORM: Search(Author)</title>
+    <style>
+      html,body{
+         height: 100%;
+         background-color: #06736E;
+      }
+      body{
+         padding-top: 40px;
+          padding-bottom: 40px;
+          padding-left: 40px;
+          padding-right: 50px;
+          color:white;
+
+      }   
+      hr{
+          color: wheat;
+          border: solid 0.3px;
+        }
+      a{
+        color: white;
+        
+      }
+</style>
+</head>
+<body class="text-center">
+    <p class="display-3"style="margin-top: 4%;" >Search result</p>  
+    <hr>
+    <table class="table table-dark table-hover" style="width: 80%;margin-left: 10%;">
+        <thead>
+          <tr>
+            <th>ISBN no</th>
+            <th>Title</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for book in allbook%}
+                <tr>                
+                    <td>{{book.isbn}}</td>
+                    <td><a href="{{ url_for('ABook_info', Bisbn=book.isbn) }}">{{book.title}}</a></td>
+                    <td>{{book.author}}</td>                
+                </tr>
+            {% endfor%}
+        </tbody>
+      </table>
+</body>
+</html>

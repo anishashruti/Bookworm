@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="icon" href="../static/favicon.ico" type="image/gif">
+    <title>BOOKWORM: Book info</title>
+    <style>
+        .top-left {
+            position: absolute;
+            top: 55%;
+            left: 17%;
+        }
+        html,body{
+               height: 100%;
+               background-color: #06736E;
+            }
+            body{
+               padding-top: 40px;
+                padding-bottom: 40px;
+                padding-left: 40px;
+                padding-right: 50px;
+                color:white;
+
+            }   
+            .container{
+                color: black;
+            }
+            hr{
+          color: wheat;
+          border: solid 0.3px;
+        }
+    </style>
+</head>
+<body class="text-center">
+    <p class="display-2"style="margin-top: 4%;" >Book Information</p>
+    <a href="/search" style="color: #06736E;" class="btn btn-lg btn-light" >Back</a>
+    <hr>
+    <br>
+    <div class="container">
+    <div class="jumbotron" style="background-color: #A7E5E2 ;border-style:solid;border-color:gray;border-radius: 30px; margin-left: 4%; margin-right: 4%; margin-top: 1%; margin-bottom: 3%;" > 
+        {% for book in allbook%}
+            <h1 class="display-4">{{book.title}}</h1>      
+            <h5>By {{book.author}} ({{book.year}}) </h5>
+            <h6>ISBN number: {{book.isbn}}</h6>
+            <br>
+            <p>Average ratings : {{data.get('items')[0].get("volumeInfo").get("averageRating")}} </p>     
+            <p>Number of ratings : {{data.get('items')[0].get("volumeInfo").get("ratingsCount")}} </p>   
+            <div class="top-left">
+                <img src='{{data.get("items")[0].get("volumeInfo").get("imageLinks").get("thumbnail")}}' width="200px" style="margin-left: 20%;"> 
+            </div>
+        <a href="{{ url_for('review', Bisbn=book.isbn) }}" class="btn btn-outline-secondary btn-lg">Review !</a></td>
+        <br>
+        
+    </div>
+    <br>
+    <div>
+        {% for rev in review%}   
+                    <div style="background-color: #8FEED7;margin-left: 18%; padding: 2%;; margin-right: 18%;border-radius: 50px; border-style:dotted;border-color:gray;color: black;">
+                            <h5>{{rev.name}} says</h5>
+                            <p  style="text-align: left;">COMMENTS: {{rev.comment}}</p>
+                            <p style="text-align: left;">RATING : {{rev.rating}}/5</p>        
+                        </div>
+            <hr>
+        {% endfor%}
+    </div>
+    {% endfor%}
+    </div>
+</body>
+</html>

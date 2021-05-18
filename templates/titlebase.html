@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="../static/favicon.ico" type="image/gif">
+    <title>BOOKWORM: Search(Title)</title>
+    <style> 
+        input[type=text] {
+  
+          width: 450px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-position: 10px 10px; 
+          background-repeat: no-repeat;
+          padding: 12px 20px 12px 40px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+        }
+            html,body{
+               height: 100%;
+               background-color: #06736E;
+            }
+            body{
+               padding-top: 40px;
+                padding-bottom: 40px;
+                padding-left: 40px;
+                padding-right: 50px;
+                color:white;
+                text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 1);
+                box-shadow: inset 0 0 5rem rgba(0, 0, 0, 1);
+            }   
+        input[type=text]:focus {
+          width: 40%;
+        }
+        hr{
+          color: wheat;
+          border: solid 0.3px;
+        }
+        </style>
+</head>
+<body class="text-center">
+    <p class="display-3"style="margin-top: 4%;" >Search by Title</p>
+    
+    <hr>
+    <form action="/search/title/searching" method="post" >
+        <input name="title" style="margin-left: 35%; margin-top: 6%; margin-bottom: 2%;" class="form-control form-control-lg" type="text" placeholder="Enter Title of the book to be searched">
+        <input type="submit" value="Search" class="btn btn-light btn-lg" style="color: teal;">
+    </form> 
+</body>
+</html>
